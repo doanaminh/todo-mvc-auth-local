@@ -38,5 +38,16 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
+    },
+    getUserDiary: async (req, res)=>{
+        try{
+
+            const diaryEntries = await Diary.find({userId:req.user.id}) //find the Diary in database with matching from models
+            const totalEntries = await Diary.countDocuments({userId:req.user.id})
+            
+            res.render('diary.ejs', { diary: diaryEntries, user: req.user, total: totalEntries,})
+        }catch(err){
+            console.log(err)
+        }
     }
 }    

@@ -12,6 +12,7 @@
     <ul>
     <% diary.forEach( el => { %>
             <li class='diaryEntry' data-id='<%=el._id%>' data-private='<%=el.private%>'>
+            
                 <span><%= el.diary %></span>
                 <br>
                 <p>This entry is <%= el.private ? 'Private ' : 'Public ' %></p>
